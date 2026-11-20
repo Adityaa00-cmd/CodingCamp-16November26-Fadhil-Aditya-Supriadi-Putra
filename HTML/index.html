@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="app-header">
+  <div class="hero">
+    <div class="greeting" id="greeting">Selamat Pagi</div>
+    <div class="clock" id="clock">00:00</div>
+    <div class="date" id="date"></div>
+  </div>
+  <div class="header-tools">
+    <form id="name-form" class="form-row">
+      <input id="name-input" type="text" maxlength="50" placeholder="Your name…" autocomplete="off" />
+      <button type="submit" id="setName">Set</button>
+    </form>
+    <button id="reset-name" class="secondary hidden" aria-label="Reset name">&#x2715; Reset Name</button>
+    <div class="seg theme-switch" role="group" aria-label="Tema">
+      <button data-t="day" class="active">☀️ Siang</button>
+      <button data-t="night">🌙 Malam</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="tasks">
+    <div class="form-row">
+      <input id="task-input" type="text" maxlength="500" placeholder="New task…" />
+      <button id="addTask">Add</button>
+    </div>
+    <div class="warning-box" id="duplicate-warning" hidden>
+      <span>A task with this description already exists. Add anyway?</span>
+      <span class="form-row">
+        <button id="duplicate-confirm">Add Anyway</button>
+        <button id="duplicate-cancel" class="secondary">Cancel</button>
+      </span>
+    </div>
+    <p class="error-msg" id="task-error"></p>
+    <div class="sort-row">
+      <label for="sort-select">Sort by:</label>
+      <select id="sort-select">
+        <option value="new">Newest</option>
+        <option value="az">Alphabetical</option>
+      </select>
+    </div>
+    <ul id="task-list"></ul>
+  </section>
+
+  <section class="timer-card">
+    <div class="seg" role="group" aria-label="Mode timer">
+      <button class="mode active" data-min="25">Focus</button>
+      <button class="mode" data-min="5">Short Break</button>
+      <button class="mode" data-min="15">Long Break</button>
+    </div>
+    <div id="timer-display">25:00</div>
+    <div id="timer-status">READY</div>
+    <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+    <div class="form-row">
+      <button id="timer-start-stop">Start</button>
+      <button id="timer-reset" class="secondary">Reset</button>
+    </div>
+    <div class="form-row custom">
+      <label for="duration-input">Custom</label>
+      <input id="duration-input" type="number" value="25" min="1" max="180" />
+      <span>min</span>
+      <button id="duration-save" class="secondary">Save</button>
+    </div>
+    <p class="error-msg" id="duration-error"></p>
+  </section>
+
+  <section class="links-card">
+    <div class="form-row">
+      <input id="link-url-input" type="text" placeholder="https://…" />
+      <input id="link-label-input" type="text" placeholder="Label (optional)" />
+      <button id="addLink">Add</button>
+    </div>
+    <p class="error-msg" id="link-error"></p>
+    <div id="links-container"></div>
+  </section>
+
+</main>
+
+<script src="app.js" defer></script>
+</body>
+</html>
+
